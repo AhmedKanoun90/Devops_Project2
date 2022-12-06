@@ -1,6 +1,14 @@
 pipeline {
     agent any
-    stages {
+    stages {  
+       stage ('testing') {
+            steps {  
+            echo 'before input'
+            sh "echo 'I am doing something that requires a node here' "
+            sh 'mvn clean install'
+           
+      }
+        
         stage("Cloning Project"){
             steps {
                 git branch: 'master',
