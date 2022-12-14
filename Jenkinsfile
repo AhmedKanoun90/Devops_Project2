@@ -32,9 +32,9 @@ pipeline {
       //      steps {
       //          script {
        //             sh "mvn package -DskipTests=true"
-                }
-            }
-        }
+        //        }
+       //     }
+      //  }
       //   stage("SonarQube Analysis") {
       //     steps {
       //         withSonarQubeEnv('sq1') {
