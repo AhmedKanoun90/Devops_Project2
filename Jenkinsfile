@@ -47,7 +47,7 @@ pipeline {
            stage("Nexus Deploy") {
             steps {
                 script {
-                    sh "mvn clean package deploy:deploy -DgroupId=com.esprit.examen -DartifactId=tpAchatProject -Dversion=1.0 -DgeneratePom=true -Dpackaging=jar -DrepositoryId=DevopsNexus -Durl=http://172.20.10.5:8081/repository/maven-releases/ -Dfile=target/tpAchatProject-1.0.jar"
+                    sh "nexusArtifactUploader credentialsId: 'nexus1', groupId: 'com.esprit.examen', nexusUrl: '172.20.10.5:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'DevopsNexus', version: '1.0'"
                 }
             }
         } 
