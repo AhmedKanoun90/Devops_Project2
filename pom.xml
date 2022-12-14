@@ -86,7 +86,7 @@
               <repository>
                <id>DevopsNexus</id>
                <name>Nexus Repository</name>
-                <url>http://172.20.10.5:8081//repository/maven-releases/</url>
+                <url>http://172.20.10.5:8081/repository/maven-releases/</url>
                </repository> 
 		<plugins>
 			<plugin>
