@@ -44,12 +44,8 @@ pipeline {
       //     }
       //   } 
         
-           stage("Nexus Deploy") {
-            steps {
-                script {
-                    sh " credentialsId: 'nexus1', groupId: 'com.esprit.examen', nexusUrl: '172.20.10.5:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'DevopsNexus', version: '1.0'"
-                }
-            }
+            stage ('Publish to Nexus') {
+            nexusPublisher nexusInstanceId: 'DevopsNexus ', nexusRepositoryId: 'DevopsNexus', packages: [[$class: 'MavenPackage', mavenAssetList: [[classifier: '', extension: '', filePath: './target/tpAchatProject-1.0.jar']],mavenCoordinate: [artifactId: 'tpAchatProject', groupId: 'com.esprit.examen', packaging: 'jar', version: '1']]]
         } 
          
           
