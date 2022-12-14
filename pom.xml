@@ -80,7 +80,14 @@
 
 	</dependencies>
 
-	<build>
+	<build> 
+		<!--  Deploy to Nexus  -->
+            <distributionManagement>
+              <repository>
+               <id>DevopsNexus</id>
+               <name>Nexus Repository</name>
+                <url>http://172.20.10.5:8081//repository/maven-releases/</url>
+               </repository> 
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
@@ -93,13 +100,7 @@
                                 <version>3.1.0</version>
                         </plugin>  
 			
-			<plugin>
-	                       <groupId>org.sonarsource.scanner.maven</groupId>
-	                       <artifactId>sonar-maven-plugin</artifactId>
-	                       <version>3.7.0.1746</version>
-                        </plugin>
-                 
-			
+                
 			
 		</plugins>
 	</build>
