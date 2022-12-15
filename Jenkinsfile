@@ -44,11 +44,11 @@ pipeline {
       //     }
       //   } 
         
-       stage("Build") { 
-         steps {  
+    //   stage("Build") { 
+    //     steps {  
              sh script: 'mvn clean package' 
-        } 
-     }
+     //   } 
+  //   }
      stage("Upload Jar  To Nexus") {
             steps {  
                  nexusArtifactUploader artifacts: [ 
