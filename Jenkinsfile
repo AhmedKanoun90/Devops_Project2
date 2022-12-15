@@ -56,8 +56,9 @@ pipeline {
                   [ 
                       artifactId: 'tpAchatProject',  
                       classifier: '',  
-                       file: 'target/tpAchatProject-1.0.jar', 
-                       type: 'jar' 
+                     //  file: 'target/tpAchatProject-1.0.jar',  
+                      file: '/var/lib/jenkins/workspace/Declerative_pipeline/target/tpAchatProject-1.0.jar', 
+                      type: 'jar' 
                    ]  
 
             ],  
