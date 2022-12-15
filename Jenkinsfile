@@ -44,9 +44,34 @@ pipeline {
       //     }
       //   } 
         
-            stage ('Publish to Nexus') {
-            nexusPublisher nexusInstanceId: 'DevopsNexus ', nexusRepositoryId: 'DevopsNexus', packages: [[$class: 'MavenPackage', mavenAssetList: [[classifier: '', extension: '', filePath: './target/tpAchatProject-1.0.jar']],mavenCoordinate: [artifactId: 'tpAchatProject', groupId: 'com.esprit.examen', packaging: 'jar', version: '1']]]
+       stage("Build") { 
+         steps {  
+             sh script: 'mvn clean package' 
         } 
+     }
+     stage("Upload Jar  To Nexus") {
+            steps {  
+                 nexusArtifactUploader artifacts: [ 
+                     [ 
+                       artifactId: 'tpAchatProject',  
+                       classifier: '',  
+                       file: 'target/tpAchatProject-1.0.jar', 
+                      type: 'jar' 
+                    ]  
+
+             ],  
+             credentialsId: 'nexus1', 
+             groupId: 'com.esprit.examen', 
+             nexusUrl: '172.20.10.5:8081', 
+             nexusVersion: 'nexus3', 
+             protocol: 'http', 
+              repository: 'http://172.20.10.5:8081/repository/deploymentRepo/',  version: '1.0' 
+
+
+          }  
+
+      } 
+
          
           
        
