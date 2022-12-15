@@ -10,7 +10,8 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.esprit.examen</groupId>
-	<artifactId>tpAchatProject</artifactId>
+	<artifactId>tpAchatProject</artifactId> 
+	<packaging>jar</packaging>
 	<version>1.0</version>
 	<name>tpAchatProject</name>
 	<description>tpAchatProject</description>
