@@ -65,7 +65,8 @@ pipeline {
              nexusUrl: '172.20.10.5:8081', 
              nexusVersion: 'nexus3', 
              protocol: 'http', 
-              repository: 'http://172.20.10.5:8081/repository/deploymentRepo/',  version: '1.0' 
+             repository: 'deploymentRepo',  
+             version: '1.0' 
 
 
           }  
