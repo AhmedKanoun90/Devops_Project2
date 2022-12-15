@@ -55,8 +55,8 @@ pipeline {
                      [ 
                        artifactId: 'tpAchatProject',  
                        classifier: '',  
-                       file: 'target/tpAchatProject-1.0.jar', 
-                      type: 'jar' 
+                       file: 'target/tpAchatProject', 
+                       type: 'jar' 
                     ]  
 
              ],  
