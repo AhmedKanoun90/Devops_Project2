@@ -1,14 +1,5 @@
-
 pipeline {
-    agent any 
-    stages {  
-        stage("Cloning Project"){
-            steps {
-              git branch: 'master',
-               url: 'https://github.com/riadh70/Devops_Project.git'
-               echo 'checkout stage'
-            }
-        } 
+    agent any
     tools {
         maven 'mvn'
     }
@@ -43,7 +34,7 @@ pipeline {
         stage("SonarQube Analysis") {
           
            steps {
-            withSonarQubeEnv('SonarQube') 
+            withSonarQubeEnv('sq1') 
             {
                   sh ''' 
                         mvn clean verify sonar:sonar \
@@ -99,9 +90,8 @@ pipeline {
             }
         }
     }
-  
- }
-} 
+   
+}
 //pipeline {
   //  agent any
     //stages {  
