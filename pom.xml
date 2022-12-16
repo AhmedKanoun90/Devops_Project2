@@ -19,7 +19,7 @@
 	</properties> 
 	  <distributionManagement>
                <repository>
-                    <id>nexus3</id>
+                    <id>deploymentRepo</id>
                     <url>http://172.20.10.5:8081/repository/deploymentRepo/</url>
                </repository>
    
