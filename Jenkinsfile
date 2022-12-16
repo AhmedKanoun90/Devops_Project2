@@ -36,14 +36,14 @@ pipeline {
               }
            }
        }
-        stage("SonarQube Analysis") {
-          steps {
-              withSonarQubeEnv('sq1') {
-              sh 'mvn sonar:sonar'
-             }
+ //       stage("SonarQube Analysis") {
+ //         steps {
+ //             withSonarQubeEnv('sq1') {
+ //             sh 'mvn sonar:sonar'
+ //            }
                  
-          }
-       } 
+ //         }
+ //      } 
         
   
      stage("Upload Jar  To Nexus") {
