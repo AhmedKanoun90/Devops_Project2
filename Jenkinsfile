@@ -50,38 +50,38 @@ pipeline {
      //        sh script: 'mvn clean package' 
      //   } 
   //   }
- //    stage("Upload Jar  To Nexus") {
- //           steps {  
- //                nexusArtifactUploader artifacts: [ 
- //                 [ 
- //                     artifactId: 'tpAchatProject',  
- //                     classifier: '',  
- //                     file: 'target/tpAchatProject-1.0.jar',  
+     stage("Upload Jar  To Nexus") {
+            steps {  
+               nexusArtifactUploader artifacts: [ 
+                 [ 
+                    artifactId: 'tpAchatProject',  
+                      classifier: '',  
+                      file: 'target/tpAchatProject-1.0.jar',  
                      // file: '/var/lib/jenkins/workspace/Declerative_pipeline/target/tpAchatProject-1.0.jar', 
- //                     type: 'jar' 
- //                  ]  
+                      type: 'jar' 
+                   ]  
 
- //           ],  
- //            credentialsId: 'nexus3', 
- //            groupId: 'com.esprit.examen', 
- //            nexusUrl: '172.20.10.5:8081', 
- //            nexusVersion: 'nexus3', 
- //            protocol: 'http', 
- //            repository: 'deploymentRepo',  
- //            version: '1.0' 
+            ],  
+            credentialsId: 'nexus3', 
+            groupId: 'com.esprit.examen', 
+            nexusUrl: '172.20.10.5:8081', 
+            nexusVersion: 'nexus3', 
+            protocol: 'http', 
+            repository: 'deploymentRepo',  
+            version: '1.0' 
 
 
- //        }  
+        }  
 
- //     } 
+     } 
 
-        stage("Nexus Deploy") {
-            steps {
-                script {
-                    sh "mvn clean package deploy:deploy -DgroupId=com.esprit.examen -DartifactId=tpAchatProject -Dversion=1.0 -DgeneratePom=true -Dpackaging=jar -DrepositoryId=deploymentRepo -Durl=http://172.20.10.5:8081/repository/maven-releases/ -Dfile=target/tpAchatProject-1.0.jar"
-                }
-            }
-        }         
+  //      stage("Nexus Deploy") {
+   //         steps {
+   //             script {
+   //                 sh "mvn clean package deploy:deploy -DgroupId=com.esprit.examen -DartifactId=tpAchatProject -Dversion=1.0 -DgeneratePom=true -Dpackaging=jar -DrepositoryId=deploymentRepo -Durl=http://172.20.10.5:8081/repository/maven-releases/ -Dfile=target/tpAchatProject-1.0.jar"
+    //            }
+    //        }
+   //     }         
           
        
    }
