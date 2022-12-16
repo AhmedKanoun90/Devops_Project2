@@ -9,39 +9,11 @@ pipeline {
             }
         }
        
-        stage ('MVN clean') {
-      steps {
-        sh 'mvn clean -e'
-        echo 'Build stage done'
-      }
-    }
+      
    
-        stage("compile Project"){
-            steps {
-                 sh 'mvn compile -X -e'
-                  echo 'compile stage done'
-            }
-        }
-        stage("unit tests"){
-            steps {
-                 sh 'mvn test'
-                  echo 'unit tests stage done'
-            }
-        }
-         stage("mvn Pckage") {
-            steps {
-                script {
-                    sh "mvn package -DskipTests=true"
-                }
-            }
-        }
-         stage("SonarQube Analysis") {
-          agent any  
-           steps {
-                  sh 'mvn sonar:sonar -Dsonar.projectKey=AchatProject -Dsonar.host.url=http://172.20.10.5:9000 -Dsonar.login=d23acd12b057dc676f72ab2d4327b0c5fee3fa88'
-                  echo 'sonar static analysis done'
-           }
-         }
+       
+     
+      
          
           
        
