@@ -17,33 +17,33 @@ pipeline {
         }
      }
    
-   //   stage("compile Project"){
-   //        steps {
-   //              sh 'mvn compile -X -e'
-   //               echo 'compile stage done'
-   //         }
-   //   }
-   //     stage("unit tests"){
-   //         steps {
-   //               sh 'mvn test'
-   //               echo 'unit tests stage done'
-   //         }
-   //     }
-   //      stage("mvn Pckage") {
-   //         steps {
-   //             script {
-   //                sh "mvn package -DskipTests=true"
-   //            }
-   //         }
-   //     }
-   //      stage("SonarQube Analysis") {
-   //        steps {
-   //           withSonarQubeEnv('sq1') {
-   //             sh 'mvn sonar:sonar'
-   //          }
+      stage("compile Project"){
+           steps {
+                 sh 'mvn compile -X -e'
+                  echo 'compile stage done'
+            }
+      }
+        stage("unit tests"){
+            steps {
+                  sh 'mvn test'
+                  echo 'unit tests stage done'
+            }
+        }
+         stage("mvn Pckage") {
+           steps {
+                script {
+                  sh "mvn package -DskipTests=true"
+              }
+           }
+       }
+        stage("SonarQube Analysis") {
+          steps {
+              withSonarQubeEnv('sq1') {
+              sh 'mvn sonar:sonar'
+             }
                  
-   //        }
-   //      } 
+          }
+       } 
         
   
      stage("Upload Jar  To Nexus") {
