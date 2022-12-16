@@ -56,13 +56,13 @@ pipeline {
                   [ 
                       artifactId: 'tpAchatProject',  
                       classifier: '',  
-                     //  file: 'target/tpAchatProject-1.0.jar',  
-                      file: '/var/lib/jenkins/workspace/Declerative_pipeline/target/tpAchatProject-1.0.jar', 
+                      file: 'target/tpAchatProject-1.0.jar',  
+                     // file: '/var/lib/jenkins/workspace/Declerative_pipeline/target/tpAchatProject-1.0.jar', 
                       type: 'jar' 
                    ]  
 
             ],  
-             credentialsId: 'nexus1', 
+             credentialsId: 'nexus3', 
              groupId: 'com.esprit.examen', 
              nexusUrl: '172.20.10.5:8081', 
              nexusVersion: 'nexus3', 
