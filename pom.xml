@@ -21,9 +21,9 @@
                <repository> 
                     <id>deploymentRepo</id> 
                     <url>http://172.20.10.5:8081/repository/maven-releases/</url> 
-              </repository>   -->
+              </repository>  
    
-        </distributionManagement> -->
+        </distributionManagement> 
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
