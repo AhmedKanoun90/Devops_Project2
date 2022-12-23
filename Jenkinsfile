@@ -1,8 +1,8 @@
 pipeline { 
     environment{
-       registry="esprituser/TpAchatProjctbackend"
+       registry="esprituser/tpachatprojctbackend"
        registryCredential='esprituser-dockerhub'
-       dokerImage="TpAchatProjctbackend"
+       dokerImage="tpachatprojctbackend"
   }
     agent any
     stages {  
@@ -56,11 +56,11 @@ pipeline {
            }
         }
       } 
-            stage('Cleaning up') {
-             steps{
-             sh "docker rmi $registry:$BUILD_NUMBER"
-           }
-        }
+        //    stage('Cleaning up') {
+        //     steps{
+        //     sh "docker rmi $registry:$BUILD_NUMBER"
+        //   }
+       // }
        stage("SonarQube Analysis") {
          steps {
              withSonarQubeEnv('sq1') {
