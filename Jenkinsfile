@@ -1,4 +1,9 @@
-pipeline {
+pipeline { 
+    environment{
+       registry="esprituser/TpAchatProjctbackend"
+       registryCredential='esprituser-dockerhub'
+       dokerImage="TpAchatProjctbackend"
+  }
     agent any
     stages {  
        stage("Cloning Project"){
@@ -34,7 +39,28 @@ pipeline {
                   sh "mvn package -DskipTests=true"
               }
            }
-       }
+       } 
+         stage("docker build") {
+            steps{
+            script {
+                dockerImage = docker.build registry + ":$BUILD_NUMBER"
+              }
+            }
+          } 
+         stage("docker push") {
+            steps{
+              script {
+                docker.withRegistry( '', registryCredential ) {
+                dockerImage.push()
+             }
+           }
+        }
+      } 
+            stage('Cleaning up') {
+             steps{
+             sh "docker rmi $registry:$BUILD_NUMBER"
+           }
+        }
        stage("SonarQube Analysis") {
          steps {
              withSonarQubeEnv('sq1') {
