@@ -1,9 +1,9 @@
 pipeline { 
-    environment{
-       registry="esprituser/tpachatprojctbackend"
-       registryCredential='esprituser-dockerhub'
-       dokerImage="tpachatprojctbackend"
-  }
+//    environment{
+//       registry="esprituser/tpachatprojctbackend"
+//       registryCredential='esprituser-dockerhub'
+//       dokerImage="tpachatprojctbackend"
+//  }
     agent any
     stages {  
        stage("Cloning Project"){
@@ -40,22 +40,22 @@ pipeline {
               }
            }
        } 
-         stage("docker build") {
-            steps{
-            script {
-                dockerImage = docker.build registry + ":$BUILD_NUMBER"
-              }
-            }
-          } 
-         stage("docker push") {
-            steps{
-              script {
-                docker.withRegistry( '', registryCredential ) {
-                dockerImage.push()
-             }
-           }
-        }
-      }  
+      //   stage("docker build") {
+      //      steps{
+      //      script {
+      //          dockerImage = docker.build registry + ":$BUILD_NUMBER"
+      //        }
+      //      }
+     //     } 
+    //     stage("docker push") {
+    //        steps{
+    //          script {
+    //            docker.withRegistry( '', registryCredential ) {
+    //            dockerImage.push()
+    //         }
+    //       }
+   //     }
+   //   }  
          stage('Docker-compose file') {
 
               steps {
