@@ -5,14 +5,14 @@ services:
     container_name: database
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: tpachato
+      MYSQL_DATABASE: tpachat
     ports:
       - 3306:3306
     networks:
       - AppNet
 
   spring-boot:
-    image: heditrigui/achat
+    image: esprituser/tpachatprojctbackend
     container_name: spring
     ports:
       - 8089:8089
@@ -22,7 +22,7 @@ services:
       - AppNet
     restart: on-failure
   angular:
-    image: heditrigui/angularproject
+    image: esprituser/angularproject
     container_name: angular
     ports:
       - 80:80
