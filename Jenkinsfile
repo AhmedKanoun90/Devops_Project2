@@ -55,7 +55,15 @@ pipeline {
              }
            }
         }
-      } 
+      }  
+         stage('Docker-compose file') {
+
+              steps {
+                    sh 'docker-compose up -d';
+                    sh 'sleep 300'
+              
+              }  
+         }
         //    stage('Cleaning up') {
         //     steps{
         //     sh "docker rmi $registry:$BUILD_NUMBER"
