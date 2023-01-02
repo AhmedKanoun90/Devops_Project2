@@ -55,7 +55,12 @@ pipeline {
     //         }
     //       }
    //     }
-   //   }  
+   //   }   
+                   stage("DockerHub login ") {
+                       steps{
+                           sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u esprituser -p P@ssw0rd@imc'
+                       }
+               }
          stage('Docker-compose file') {
 
               steps {
