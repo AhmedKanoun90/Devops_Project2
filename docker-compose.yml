@@ -12,7 +12,7 @@ services:
       - AppNet
 
   spring-boot:
-    image: esprituser/ tpachatprojctbackend
+    image: esprituser/tpachatprojctbackend
     container_name: spring
     ports:
       - 8089:8089
