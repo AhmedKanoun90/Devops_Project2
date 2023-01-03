@@ -8,24 +8,4 @@ services:
       MYSQL_DATABASE: wp_db  
       MYSQL_USER: wp_user 
       MYSQL_PASSWORD: 1234
-    volumes: 
-     - mysql:/var/lib/mysql
-  wordpress: 
-    depends_on:
-      - mysql_database
-    image: wordpress:latest
-    restart: always
-    ports:
-      - "8000:80" 
-    environment: 
-      WORDPRESS_DB_HOST: mysql_databse:3306  
-      WORDPRESS_DB_USER: wp_user 
-      WORDPRESS_PASSWORD: 1234 
-      WORDPRESS_DB_NAME: wp_db 
-    volumes: 
-      ["./:/var/www/html"] 
-  
-
-    
-
-  
+   
