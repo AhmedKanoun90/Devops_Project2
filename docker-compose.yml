@@ -1,23 +1,32 @@
 version: '2.2'
 services:
-  database:
-    image: mysql:5.7
-    container_name: database
+  mysql_database:
+    image: mysql
+    restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: tpachat
-    ports:
-      - 3306:3306
+      MYSQL_ROOT_PASSWORD: 1234
+      MYSQL_DATABASE: wp_db  
+      MYSQL_USER: wp_user 
+      MYSQL_PASSWORD: 1234
     volumes: 
      - mysql:/var/lib/mysql
-
-  angular: 
+  wordpress: 
     depends_on:
-      - database
-    image: esprituser/angularproject
-    container_name: angular
+      - mysql_database
+    image: wordpress:latest
+    restart: always
     ports:
-      - 8000:80
+      - "8000:80" 
+    environment: 
+      WORDPRESS_DB_HOST: mysql_databse:3306  
+      WORDPRESS_DB_USER: wp_user 
+      WORDPRESS_PASSWORD: 1234 
+      WORDPRESS_DB_NAME: wp_db 
+    volumes: 
+      ["./:/var/www/html"] 
+  
+  volumes: 
+   mysql: {}
     
 
   
