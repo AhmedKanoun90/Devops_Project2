@@ -47,11 +47,11 @@ pipeline {
               }
            }
          }  
-          stage("DockerHub login ") {
-              steps{
-                  sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u esprituser -p P@ssw0rd@imc'
-            }
-          }
+       //   stage("DockerHub login ") {
+       //       steps{
+       //           sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u esprituser -p P@ssw0rd@imc'
+       //     }
+      //    }
          stage("docker push") {
             steps{
               script {
@@ -62,14 +62,14 @@ pipeline {
        }
       }   
             
-         stage('Docker-compose file') {
+ //        stage('Docker-compose file') {
 
-              steps {
-                    sh 'docker-compose up -d';
-                    sh 'sleep 300'
+ //             steps {
+ //                   sh 'docker-compose up -d';
+ //                   sh 'sleep 300'
               
-              }  
-         }
+ //             }  
+ //        }
         //    stage('Cleaning up') {
         //     steps{
         //     sh "docker rmi $registry:$BUILD_NUMBER"
