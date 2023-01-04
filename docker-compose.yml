@@ -1,10 +1,8 @@
 version: '2.2'
 services:
-  mysql_database:
-    image: mysql:5.7
-    restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: 1234
-      MYSQL_DATABASE: wp_db  
-      MYSQL_USER: wp_user 
-      MYSQL_PASSWORD: 1234  
+  mysql-server-80:
+    image: mysql/mysql-server:8.0
+    volumes:
+        - ./docker-entrypoint-initdb.d/:/docker-entrypoint-initdb.d/
+    ports:
+      - "3308:3306"
