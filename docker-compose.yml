@@ -1,13 +1,10 @@
-version: "2.1"
+version: '2.2'
 services:
-  mysqldb:
+  mysql_database:
     image: mysql:5.7
-    restart: unless-stopped
+    restart: always
     environment:
-      - MYSQL_ROOT_PASSWORD=
-      - MYSQL_ALLOW_EMPTY_PASSWORD=1
-      - MYSQL_DATABASE=alinfo
-    ports:
-      - 3306:3306
-    volumes:
-      - './.mysql-data/db:/var/lib/mysql'
+      MYSQL_ROOT_PASSWORD: 1234
+      MYSQL_DATABASE: wp_db  
+      MYSQL_USER: wp_user 
+      MYSQL_PASSWORD: 1234  
