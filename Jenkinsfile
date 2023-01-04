@@ -3,7 +3,10 @@ pipeline {
    //    registry="esprituser/tpachatprojctbackend"
    //    registryCredential='esprituser-dockerhub'
    //    dokerImage="tpachatprojctbackend"
-//  }
+//  } 
+      environment {
+        PATH = "$PATH:/usr/local/bin"
+      }
     agent any
     stages {  
        stage("Cloning Project"){
