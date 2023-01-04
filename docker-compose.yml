@@ -1,8 +1,32 @@
 version: '2.2'
 services:
-  mysql-server-80:
-    image: mysql/mysql-server:8.0
-    volumes:
-        - ./docker-entrypoint-initdb.d/:/docker-entrypoint-initdb.d/
+  database:
+    image: mysql:5.7
+    container_name: database
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: tpachato
     ports:
-      - "3308:3306"
+      - 3306:3306
+    networks:
+      - AppNet
+
+  spring-boot:
+    image: esprituser/ tpachatprojctbackend
+    container_name: spring
+    ports:
+      - 8089:8089
+    depends_on:
+      - database
+    networks:
+      - AppNet
+    restart: on-failure
+  angular:
+    image: esprituser/angularproject
+    container_name: angular
+    ports:
+      - 80:80
+    depends_on:
+      - spring-boot
+    networks:
+      - AppNet
