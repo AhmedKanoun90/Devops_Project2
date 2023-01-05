@@ -4,4 +4,12 @@ services:
     image: esprituser/redis
     container_name: redis
     ports:
-      - 8282:8282
+      - 8282:8282 
+  database:
+    image: mysql:5.7
+    container_name: database
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: tpachato
+    ports:
+      - 3307:3306
