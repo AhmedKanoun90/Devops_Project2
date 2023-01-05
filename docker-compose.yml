@@ -1,11 +1,17 @@
 version: '2.2'
 services: 
   database:
-    image: phpmyadmin/phpmyadmin
+    image: phpmyadmin/phpmyadmin 
+    container_name: database
     restart: always 
     ports:
-      - "3306:3306"
+      - "3306:3306"     
+    networks:
+        vpcbr:
+          ipv4_address: 172.20.10.5
+    
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: tpachato
+      MYSQL_DATABASE: tpachato 
+    
    
