@@ -7,9 +7,7 @@ services:
     ports:
       - "3306:3306"     
     networks:
-      foo_network:
-        driver_opts:
-          com.docker.network.bridge.host_binding_ipv4: "172.20.10.5"
+      - AppNet
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: tpachato 
