@@ -1,6 +1,6 @@
 version: '2.2'
 services:
-angular:
+  angular:
     image: esprituser/angularproject
     container_name: angular
     ports:
