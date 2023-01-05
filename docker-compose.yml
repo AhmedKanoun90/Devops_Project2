@@ -1,15 +1,11 @@
 version: '2.2'
-services:
-  angular:
-    image: esprituser/redis
-    container_name: redis
-    ports:
-      - 8282:8282 
+services: 
   database:
-    image: mysql:5.7
-    container_name: database
+    image: phpmyadmin/phpmyadmin
+    restart: always 
+    ports:
+      - "8080:80"
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: tpachato
-    ports:
-      - 3307:3306
+   
