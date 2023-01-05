@@ -1,10 +1,7 @@
-version: '2.14'
+version: '2.2'
 services:
-  mysql_database:
-    image: mysql:5.7
-    restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: 1234
-      MYSQL_DATABASE: wp_db  
-      MYSQL_USER: wp_user 
-      MYSQL_PASSWORD: 1234
+angular:
+    image: esprituser/angularproject
+    container_name: angular
+    ports:
+      - 80:80
