@@ -9,21 +9,13 @@ services:
     ports:
       - 3307:3306 
       
-  spring-boot:
-    image: esprituser/tpachatprojctbackend
-    container_name: spring
-    ports:
-      - 8089:8089
-    depends_on:
-      - database
-    restart: on-failure
+
   angular:
     image: esprituser/angularproject
     container_name: angular
     ports:
       - 4200:4200
-    depends_on:
-      - spring-boot
+    
   
     
    
