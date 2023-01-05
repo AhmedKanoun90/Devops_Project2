@@ -4,4 +4,4 @@ services:
     image: esprituser/redis
     container_name: redis
     ports:
-      - 82:82
+      - 8282:8282
