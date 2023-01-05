@@ -4,4 +4,4 @@ services:
     image: esprituser/angularproject
     container_name: angular
     ports:
-      - 80:80
+      - 82:82
