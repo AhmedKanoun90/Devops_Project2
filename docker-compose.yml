@@ -1,7 +1,7 @@
 version: '2.2'
 services:
   angular:
-    image: esprituser/angularproject
-    container_name: angular
+    image: esprituser/redis
+    container_name: redis
     ports:
       - 82:82
