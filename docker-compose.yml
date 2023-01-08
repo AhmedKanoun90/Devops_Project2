@@ -8,13 +8,7 @@ services:
       MYSQL_DATABASE: tpachato
     ports:
       - 3307:3306  
-    networks:
-      default:
-        driver: nat
-        ipam:
-          driver: default
-          config:
-          - subnet: 172.20.10.0/24
+
   spring-boot:
     image: esprituser/tpachatprojctbackend:121
     container_name: spring
@@ -23,13 +17,7 @@ services:
     depends_on:
       - database
     restart: on-failure   
-    networks:
-      default:
-        driver: nat
-        ipam:
-          driver: default
-          config:
-          - subnet: 172.20.10.0/24
+
 
   angular:
     image: esprituser/angularproject:dev
@@ -38,13 +26,7 @@ services:
       - 4200:4200 
     depends_on:
       - spring-boot 
-    networks:
-      default:
-        driver: nat
-        ipam:
-          driver: default
-          config:
-          - subnet: 172.20.10.0/24
+
     
   
     
